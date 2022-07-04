@@ -24,10 +24,48 @@ const deleteTask = async (req: Request, res: Response): Promise<Response> => {
   try {
     const id = req.params.id;
     const task = await taskService.deleteTask(Number(id));
-    return res.status(200).send({ message: `Destroyed ${task} rows` });
+    return res.status(200).send({ message: `Destroyed ${task} task(s)` });
   } catch (error) {
     return res.status(500).send(error);
   }
 }
 
-export default { getAll, create, deleteTask };
+const updateTask = async (req: Request, res: Response): Promise<Response> => {
+  try {
+    const id = req.params.id;
+    const task = req.body;
+    const updatedAmount = await taskService.updateTask(Number(id), task);
+    return res.status(200).send({ message: `Updated ${updatedAmount} task(s)` });
+  } catch (error) {
+    return res.status(500).send(error);
+  }
+};
+
+const startTask = async (req: Request, res: Response): Promise<Response> => {
+  try {
+    const id = req.params.id;
+    const taskTitle = await taskService.startTask(Number(id));
+    return res.status(200).send({ message: `Started "${taskTitle}"` });
+  } catch (error) {
+    return res.status(500).send(error);
+  }
+};
+
+const finishTask = async (req: Request, res: Response): Promise<Response> => {
+  try {
+    const id = req.params.id;
+    const taskTitle = await taskService.finishTask(Number(id));
+    return res.status(200).send({ message: `Finished "${taskTitle}"` });
+  } catch (error) {
+    return res.status(500).send(error);
+  }
+};
+
+export default {
+  getAll,
+  create,
+  deleteTask,
+  updateTask,
+  startTask,
+  finishTask,
+};

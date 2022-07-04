@@ -18,6 +18,12 @@ app.get('/tasks', taskController.getAll);
 
 app.delete('/tasks/:id', taskController.deleteTask);
 
+app.put('/tasks/:id', taskController.updateTask);
+
+app.put('/tasks/:id/start', taskController.startTask);
+
+app.put('/tasks/:id/finish', taskController.finishTask);
+
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
 });
