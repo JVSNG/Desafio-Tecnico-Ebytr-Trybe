@@ -1,10 +1,11 @@
 import express from 'express';
+import 'dotenv/config';
 import taskController from './controller/taskController';
 
 const app = express();
 app.use(express.json());
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 app.get('/', (req, res) => {
     res.send('Rotas: get/tasks, post/tasks. delete/tasks/:id, put/tasks/:id');

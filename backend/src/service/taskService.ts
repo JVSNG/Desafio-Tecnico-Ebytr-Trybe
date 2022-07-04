@@ -1,4 +1,4 @@
-import Task from '../models/Task';
+import Task from '../database/models/Task';
 
 const getAll = async (): Promise<Task[]> => {
   const tasks = await Task.findAll();
