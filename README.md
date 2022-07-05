@@ -3,8 +3,6 @@ Projeto do evento de blitz de carreira da trybe, consiste na simulação de um d
 
 ## Instruções para utilizar o projeto - Backend
 - Ter instalado node na versão latest.
-- Ter Docker instalado.
-- Ter Docker-Compose instalado
 - Dar clone no repositório.
 - Você pode rodar somente o backend, para isso
   - Você deve criar um arquivo .env dentro da pasta backend e criar as seguintes varáveis de ambiente:
